@@ -6,7 +6,7 @@ function List() {
   return (
     <div id="list">
       List Component
-      <ListItem />;
+      <ListItem />
     </div>
   );
 }
