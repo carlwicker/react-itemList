@@ -3,7 +3,6 @@ import "./ListAddItem.css";
 
 function ListAddItem() {
   let addItemForm = document.getElementById("add-item-input");
-  console.log(addItemForm);
 
   return (
     <form id="list-add-item-form">

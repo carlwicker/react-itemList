@@ -4,22 +4,20 @@ import "./List.css";
 
 class List extends React.Component {
   render() {
-    const list = {
-      props: {
-        listItem: [
-          {
-            id: 1,
-            name: "ListItem Component"
-          }
-        ]
-      }
+    const props = {
+      listItem: [
+        {
+          id: 1,
+          name: "ListItem Component"
+        }
+      ]
     };
 
     return (
       <div id="list">
         List Component
         <ul>
-          <ListItem listItem={list.props.listItem} />
+          <ListItem listItem={props.listItem} />
         </ul>
       </div>
     );

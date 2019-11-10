@@ -2,7 +2,11 @@ import React from "react";
 import "./ListItem.css";
 
 function ListItem(props) {
-  return <li>{props.listItem[0].name}</li>;
+  return (
+    <li>
+      {props.listItem[0].id}: {props.listItem[0].name}
+    </li>
+  );
 }
 
 export default ListItem;
