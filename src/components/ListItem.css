@@ -2,3 +2,8 @@ ul {
     margin-left: 5%;
     background: peachpuff;
 }
+
+button {
+    padding: 5px 10px;
+    font-size: 1em;
+}

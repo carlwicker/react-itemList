@@ -1,12 +1,8 @@
 import React from "react";
 import "./ListItem.css";
 
-function ListItem() {
-  return (
-    <ul>
-      <li>ListItem Component</li>
-    </ul>
-  );
+function ListItem(props) {
+  return <li>{props.listItem[0].name}</li>;
 }
 
 export default ListItem;
