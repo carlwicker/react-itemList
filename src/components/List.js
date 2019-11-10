@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import ListItem from "./ListItem";
+import "./List.css";
 
-class List extends Component {
-  render() {
-    return (
-      <ul>
-        <li>Txt1</li>
-        <li>Txt2</li>
-        <li>Txt3</li>
-      </ul>
-    );
-  }
+function List() {
+  return (
+    <div id="list">
+      List Component
+      <ListItem />;
+    </div>
+  );
 }
 
 export default List;
