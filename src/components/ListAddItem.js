@@ -12,7 +12,9 @@ function ListAddItem() {
         id="add-item-input"
         defaultValue="Some input text"
       ></input>
-      <button href="#">Test Button</button>
+      <button href="#" className="btn btn-primary">
+        Add Item
+      </button>
     </form>
   );
 }
