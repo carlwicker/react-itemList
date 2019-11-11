@@ -5,15 +5,14 @@ import itemData from "../itemData";
 
 class List extends React.Component {
   render() {
-    const data = itemData.map(item => {
+    const listData = itemData.map(item => {
       return <ListItem key={item.id} id={item.id} name={item.name} />;
     });
-    console.log(data);
 
     return (
       <div id="list">
         List Component
-        <ul>{data}</ul>
+        <ul>{listData}</ul>
       </div>
     );
   }
