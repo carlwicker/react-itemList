@@ -1,24 +1,19 @@
 import React from "react";
 import ListItem from "./ListItem";
 import "./List.css";
+import itemData from "../itemData";
 
 class List extends React.Component {
   render() {
-    const props = {
-      listItem: [
-        {
-          id: 1,
-          name: "ListItem Component"
-        }
-      ]
-    };
+    const data = itemData.map(item => {
+      return <ListItem key={item.id} id={item.id} name={item.name} />;
+    });
+    console.log(data);
 
     return (
       <div id="list">
         List Component
-        <ul>
-          <ListItem listItem={props.listItem} />
-        </ul>
+        <ul>{data}</ul>
       </div>
     );
   }
