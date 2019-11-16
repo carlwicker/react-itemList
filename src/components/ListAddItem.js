@@ -3,14 +3,16 @@ import "./ListAddItem.css";
 
 function ListAddItem(props) {
   return (
-    <div id="list-item-add">
-      <label>{props.title}</label>
+    <div id="list-item-add" className="input-group mb-3">
       <input
         type="text"
+        className="form-control"
         id="add-item-input"
-        defaultValue="Some input text"
+        defaultValue=""
       ></input>
-      <button className="btn btn-primary">Add Item</button>
+      <div className="input-group-append">
+        <button className="btn btn-primary">Add Item</button>
+      </div>
     </div>
   );
 }

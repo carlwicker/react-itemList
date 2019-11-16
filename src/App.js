@@ -7,10 +7,10 @@ import Header from "./components/Header";
 
 function App() {
   let pageTitles = [
-    { page: "Header", title: "Header Title from App props" },
+    { page: "Header", title: "Item List" },
     { page: "ListItemAdd", title: "ListItemAdd Title from App props" },
     { page: "List", title: "List Title from App props" },
-    { page: "Footer", title: "Footer Title from App props" }
+    { page: "Footer", title: "Footer stuff..." }
   ];
 
   return (
