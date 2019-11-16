@@ -27,15 +27,28 @@ class List extends React.Component {
     console.log(this.state);
 
     return (
-      <ul>
-        {users.map(user => {
-          return (
-            <li key={user.id}>
-              {user.id} - {user.name} - {user.username} - {user.address.city}
-            </li>
-          );
-        })}
-      </ul>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => {
+            return (
+              <tr key={user.id}>
+                <th scope="row">{user.id}</th>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>{user.address.city}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     );
   }
 }
