@@ -1,19 +1,41 @@
 import React from "react";
-import ListItem from "./ListItem";
 import "./List.css";
-import itemData from "../itemData";
 
 class List extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      users: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          isLoaded: true,
+          users: result
+        });
+      });
+  }
+
   render() {
-    const listData = itemData.map(item => {
-      return <ListItem key={item.id} id={item.id} name={item.name} />;
-    });
+    let users = this.state.users;
+    console.log(this.state);
 
     return (
-      <div id="list">
-        {this.props.title}
-        <ul>{listData}</ul>
-      </div>
+      <ul>
+        {users.map(user => {
+          return (
+            <li key={user.id}>
+              {user.id} - {user.name} - {user.username} - {user.address.city}
+            </li>
+          );
+        })}
+      </ul>
     );
   }
 }
