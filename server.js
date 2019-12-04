@@ -15,7 +15,6 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build/")));
-console.log(__dirname);
 
 const db = process.env.DB;
 
@@ -54,7 +53,6 @@ app.get("/api/customers", (req, res) => {
 
 // Handles any requests that don't match the ones above
 app.get("*", (req, res) => {
-  //res.sendFile(path.join(__dirname + "index.html"));
   res.sendFile(path.resolve(__dirname + "cliebt", "build", "index.html"));
 });
 
