@@ -12,7 +12,7 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/customers")
+    fetch("https://react-item-list.herokuapp.com/api/customers")
       .then(res => res.json())
       .then(result => {
         this.setState({
