@@ -14,7 +14,7 @@ require("dotenv").config();
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build/")));
 console.log(__dirname);
 
 const db = process.env.DB;
