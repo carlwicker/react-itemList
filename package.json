@@ -1,42 +1,15 @@
 {
-  "name": "react-item-list",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "api": "0.0.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-generator": "^4.16.1",
-    "mongoose": "^5.7.10",
-    "node-fetch": "^2.6.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
-  },
+  "name": "react-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "y",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "description": "https://react-item-list.herokuapp.com",
-  "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carlwicker/learn-react.git"
@@ -46,5 +19,28 @@
   "bugs": {
     "url": "https://github.com/carlwicker/learn-react/issues"
   },
-  "homepage": "https://github.com/carlwicker/learn-react#readme"
+  "homepage": "http://localhost:5000",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.11",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.2.0",
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "mocha": "^6.2.2",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0"
+  }
 }

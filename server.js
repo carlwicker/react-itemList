@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
+var path = require("path");
+var cors = require("cors");
 
 const app = express();
 const port = 5000 || process.env.PORT;
@@ -8,9 +10,14 @@ const port = 5000 || process.env.PORT;
 // Environmental Variables
 require("dotenv").config();
 
-const db = process.env.DB;
+// Enable CORS
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "client/build")));
+console.log(__dirname);
+
+const db = process.env.DB;
 
 // Fake API
 app.get("/api/customers", (req, res) => {
@@ -43,6 +50,11 @@ app.get("/api/customers", (req, res) => {
     .catch(err => {
       console.error(err);
     });
+});
+
+// Handles any requests that don't match the ones above
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "index.html"));
 });
 
 // Start Server

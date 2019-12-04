@@ -8,9 +8,11 @@
     "express": "^4.17.1",
     "express-generator": "^4.16.1",
     "mongoose": "^5.7.10",
+    "node-fetch": "^2.6.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/carlwicker/learn-react/issues"
   },
-  "homepage": "https://github.com/carlwicker/learn-react#readme"
+  "homepage": "http://localhost:5000"
 }

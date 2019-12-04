@@ -1,18 +1,54 @@
 import React from "react";
-import ListItem from "./ListItem";
 import "./List.css";
-import itemData from "../itemData";
 
 class List extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      users: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:5000/api/customers")
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          isLoaded: true,
+          users: result
+        });
+      });
+  }
+
   render() {
-    const listData = itemData.map(item => {
-      return <ListItem key={item.id} id={item.id} name={item.name} />;
-    });
+    let users = this.state.users;
 
     return (
       <div id="list">
-        {this.props.title}
-        <ul>{listData}</ul>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">City</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map(user => {
+              return (
+                <tr key={user.id}>
+                  <th scope="row">{user.id}</th>
+                  <td>{user.name}</td>
+                  <td>{user.username}</td>
+                  <td>{user.address.city}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
