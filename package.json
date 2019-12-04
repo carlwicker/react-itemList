@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/carlwicker/learn-react/issues"
   },
-  "homepage": "http://localhost:5000",
+  "homepage": "https://react-item-list.herokuapp.com/",
   "dependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.0",
