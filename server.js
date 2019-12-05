@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 var path = require("path");
 var cors = require("cors");
+const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,25 +17,20 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build/")));
 
-const db = process.env.DB;
+// Mongoose Connection
+const db = process.env.MONGODB;
+mongoose.connect(db, { useNewUrlParser: true });
+
+// Mongoose Model
+const listItem = mongoose.model("listItem", {
+  name: String
+});
+
+const item = new listItem({ name: "do something" });
+item.save().then(() => console.log("data test"));
 
 // Fake API
 app.get("/api/customers", (req, res) => {
-  const items = [
-    {
-      id: 1,
-      name: "john doe"
-    },
-    {
-      id: 2,
-      name: "carl wicker"
-    },
-    {
-      id: 3,
-      name: "monika nutaututue"
-    }
-  ];
-
   const data = fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => {
       if (res.status >= 400) {
