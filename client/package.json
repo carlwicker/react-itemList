@@ -47,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/carlwicker/learn-react/issues"
   },
-  "homepage": "https://react-item-list.herokuapp.com"
+  "homepage": "http://localhost:3000"
 }
