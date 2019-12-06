@@ -12,7 +12,7 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://react-item-list.herokuapp.com/api/customers")
+    fetch("https://react-item-list.herokuapp.com/api/items")
       // fetch("http://localhost:5000/api/customers")
       .then(res => res.json())
       .then(result => {
@@ -32,19 +32,19 @@ class List extends React.Component {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">City</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Controls</th>
             </tr>
           </thead>
           <tbody>
             {users.map(user => {
               return (
-                <tr key={user.id}>
-                  <th scope="row">{user.id}</th>
+                <tr key={user._id}>
+                  <th scope="row">{user._id}</th>
                   <td>{user.name}</td>
-                  <td>{user.username}</td>
-                  <td>{user.address.city}</td>
+                  <td>
+                    <a href="#">Edit</a> | <a href="#">Delete</a>
+                  </td>
                 </tr>
               );
             })}

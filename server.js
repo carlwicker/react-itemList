@@ -36,7 +36,7 @@ app.use("/api/items", items);
 
 // Fake API
 app.get("/api/customers", (req, res) => {
-  const data = fetch("https://react-item-list.herokuapp.com/api/customers")
+  const data = fetch("https://react-item-list.herokuapp.com/api/items")
     .then(res => {
       if (res.status >= 400) {
         throw new Error("Bad response");
