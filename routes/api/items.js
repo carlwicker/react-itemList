@@ -24,4 +24,13 @@ router.post("/", (req, res) => {
   newItem.save().then(item => res.json(item));
 });
 
+// @route   DELETE api/items/:if
+// @desc    Delete items
+// @access  Public
+router.delete("/:_id", (req, res) => {
+  Item.findById(req.params._id)
+    .then(item => item.remove().then(() => res.json({ success: true })))
+    .catch(err => res.status(494).json({ success: false }));
+});
+
 module.exports = router;

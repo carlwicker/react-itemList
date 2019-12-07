@@ -43,7 +43,7 @@ class List extends React.Component {
                   <th scope="row">{user._id}</th>
                   <td>{user.name}</td>
                   <td>
-                    <a href="#">Edit</a> | <a href="#">Delete</a>
+                    <a href="#">Edit</a> | <a href="/">Delete</a>
                   </td>
                 </tr>
               );
