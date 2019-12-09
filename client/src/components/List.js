@@ -1,5 +1,6 @@
 import React from "react";
 import "./List.css";
+import Axios from "axios";
 
 class List extends React.Component {
   constructor(props) {
@@ -12,15 +13,14 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://react-item-list.herokuapp.com/api/items")
-      // fetch("http://localhost:5000/api/customers")
-      .then(res => res.json())
-      .then(result => {
+    Axios.get("https://react-item-list.herokuapp.com/api/items").then(
+      result => {
         this.setState({
           isLoaded: true,
-          users: result
+          users: result.data
         });
-      });
+      }
+    );
   }
 
   render() {
@@ -43,7 +43,8 @@ class List extends React.Component {
                   <th scope="row">{user._id}</th>
                   <td>{user.name}</td>
                   <td>
-                    <a href="#">Edit</a> | <a href="/">Delete</a>
+                    <a href="/">Edit</a> |{" "}
+                    <a href={"/api/items/" + user._id}>Delete</a>
                   </td>
                 </tr>
               );
