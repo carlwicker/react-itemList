@@ -8,7 +8,7 @@ function ListItem(props) {
       <td>{props.name} </td>
       <td>
         <button className="btn btn-primary">Edit</button>{" "}
-        <button className="btn btn-primary">Delete</button>
+        <button className="btn btn-danger">Delete</button>
       </td>
     </tr>
   );

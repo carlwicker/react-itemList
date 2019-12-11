@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 import "./ListAddItem.css";
 
 class ListAddItem extends React.Component {
@@ -15,12 +16,18 @@ class ListAddItem extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("OUTPUT: " + this.state.value);
     event.preventDefault();
+    Axios.post("https://react-item-list.herokuapp.com/api/items", this.state)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   componentDidUpdate() {
-    console.log(this.state.value);
+    console.log(this.state);
   }
 
   render() {
