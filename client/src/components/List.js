@@ -1,6 +1,7 @@
 import React from "react";
 import "./List.css";
 import Axios from "axios";
+import ListItem from "./ListItem";
 
 class List extends React.Component {
   constructor(props) {
@@ -23,6 +24,16 @@ class List extends React.Component {
     );
   }
 
+  // handleDelete(e) {
+  //   // e.preventDefault();
+  //   console.log(this.state.users[0]);
+  //   Axios.delete(
+  //     "https://react-item-list.herokuapp.com/api/items/{this.state.data._id}".then(
+  //       res => console.log(res.data)
+  //     )
+  //   );
+  // }
+
   render() {
     let users = this.state.users;
 
@@ -39,14 +50,7 @@ class List extends React.Component {
           <tbody>
             {users.map(user => {
               return (
-                <tr key={user._id}>
-                  <th scope="row">{user._id}</th>
-                  <td>{user.name}</td>
-                  <td>
-                    <a href="/">Edit</a> |{" "}
-                    <a href={"/api/items/" + user._id}>Delete</a>
-                  </td>
-                </tr>
+                <ListItem key={user._id} _id={user._id} name={user.name} />
               );
             })}
           </tbody>

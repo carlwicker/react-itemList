@@ -3,10 +3,14 @@ import "./ListItem.css";
 
 function ListItem(props) {
   return (
-    <li>
-      {props.id}: {props.name} <button className="btn btn-primary">Edit</button>
-      <button className="btn btn-primary">Delete</button>
-    </li>
+    <tr>
+      <th scope="row">{props._id}</th>
+      <td>{props.name} </td>
+      <td>
+        <button className="btn btn-primary">Edit</button>{" "}
+        <button className="btn btn-primary">Delete</button>
+      </td>
+    </tr>
   );
 }
 
