@@ -16,6 +16,9 @@ require("dotenv").config();
 // Enable CORS
 app.use(cors());
 
+// parse application/json
+app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build/")));
 
@@ -28,8 +31,8 @@ const listItem = mongoose.model("listItem", {
   name: String
 });
 
-const item = new listItem({ name: "do something" });
-item.save().then(() => console.log("data test"));
+// const item = new listItem({ name: "do something" });
+// item.save().then(() => console.log("data test"));
 
 // New API
 app.use("/api/items", items);

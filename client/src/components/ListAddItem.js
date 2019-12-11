@@ -5,14 +5,14 @@ import "./ListAddItem.css";
 class ListAddItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { name: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
@@ -34,7 +34,7 @@ class ListAddItem extends React.Component {
     return (
       <div id="list-item-add" className="input-group mb-3">
         <input
-          value={this.state.value}
+          value={this.state.name}
           onChange={this.handleChange}
           type="text"
           className="form-control"
