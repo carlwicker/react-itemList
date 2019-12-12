@@ -5,9 +5,7 @@ import Axios from "axios";
 function ListItem(props) {
   return (
     <tr>
-      <th scope="row" valign="middle">
-        {props._id}
-      </th>
+      <th scope="row">{props._id}</th>
       <td>{props.name}</td>
       <td>
         <button className="btn btn-primary">Edit</button>{" "}
