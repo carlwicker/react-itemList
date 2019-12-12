@@ -33,20 +33,22 @@ class ListAddItem extends React.Component {
 
   render() {
     return (
-      <div id="list-item-add" className="input-group mb-3">
-        <input
-          value={this.state.name}
-          onChange={this.handleChange}
-          type="text"
-          className="form-control"
-          id="add-item-input"
-        ></input>
-        <div className="input-group-append">
-          <button className="btn btn-primary" onClick={this.handleSubmit}>
-            Add Item
-          </button>
+      <form onSubmit={this.handleSubmit}>
+        <div id="list-item-add" className="input-group mb-3">
+          <input
+            value={this.state.name}
+            onChange={this.handleChange}
+            type="text"
+            className="form-control"
+            id="add-item-input"
+          ></input>
+          <div className="input-group-append">
+            <button type="submit" className="btn btn-primary">
+              Add Item
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

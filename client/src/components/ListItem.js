@@ -14,6 +14,8 @@ function ListItem(props) {
             Axios.delete(
               "https://react-item-list.herokuapp.com/api/items/" + props._id
             )
+              .then(success => console.log("Deleted: " + props._id))
+              .catch(err => console.log(err))
           }
           className="btn btn-danger"
         >
