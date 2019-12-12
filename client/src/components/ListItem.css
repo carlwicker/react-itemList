@@ -6,3 +6,8 @@
 td {
     text-transform: capitalize;
 }
+
+td.fitWidth {
+    width: 1px;
+    white-space: nowrap;
+}

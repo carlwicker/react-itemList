@@ -7,7 +7,7 @@ function ListItem(props) {
     <tr>
       <th scope="row">{props._id}</th>
       <td>{props.name}</td>
-      <td>
+      <td className="fitWidth">
         <button className="btn btn-primary">Edit</button>{" "}
         <button
           onClick={() =>
