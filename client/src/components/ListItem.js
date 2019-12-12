@@ -1,5 +1,6 @@
 import React from "react";
 import "./ListItem.css";
+import Axios from "axios";
 
 function ListItem(props) {
   return (
@@ -9,7 +10,11 @@ function ListItem(props) {
       <td>
         <button className="btn btn-primary">Edit</button>{" "}
         <button
-          onClick={() => console.log("Clicked: " + props._id)}
+          onClick={() =>
+            Axios.delete(
+              "https://react-item-list.herokuapp.com/api/items/" + props._id
+            )
+          }
           className="btn btn-danger"
         >
           Delete
