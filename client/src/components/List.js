@@ -24,15 +24,16 @@ class List extends React.Component {
     );
   }
 
-  // handleDelete(e) {
-  //   // e.preventDefault();
-  //   console.log(this.state.users[0]);
-  //   Axios.delete(
-  //     "https://react-item-list.herokuapp.com/api/items/{this.state.data._id}".then(
-  //       res => console.log(res.data)
-  //     )
-  //   );
-  // }
+  componentDidUpdate() {
+    Axios.get("https://react-item-list.herokuapp.com/api/items").then(
+      result => {
+        this.setState({
+          isLoaded: true,
+          users: result.data
+        });
+      }
+    );
+  }
 
   render() {
     let users = this.state.users;
@@ -48,7 +49,7 @@ class List extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {users.map(user => {
+            {users.map((user, index) => {
               return (
                 <ListItem key={user._id} _id={user._id} name={user.name} />
               );

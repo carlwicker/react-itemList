@@ -20,6 +20,7 @@ class ListAddItem extends React.Component {
     Axios.post("https://react-item-list.herokuapp.com/api/items", this.state)
       .then(response => {
         console.log(response);
+        this.setState({ name: "" });
       })
       .catch(error => {
         console.log(error);
