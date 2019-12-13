@@ -25,6 +25,14 @@ router.post("/", (req, res) => {
   newItem.save().then(item => res.json(item));
 });
 
+// @route   PATCH api/items/update/:id
+// @desc    Update item
+// @access  Public
+router.patch("/update/:id", (req, res) => {
+  const _id = req.params._id;
+  console.log(_id);
+});
+
 // @route   DELETE api/items/:id
 // @desc    Delete item
 // @access  Public
