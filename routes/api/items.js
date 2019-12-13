@@ -28,9 +28,10 @@ router.post("/", (req, res) => {
 // @route   PATCH api/items/update/:id
 // @desc    Update item
 // @access  Public
-router.patch("/update/:id", (req, res) => {
+router.patch("/update/:_id", (req, res) => {
   const _id = req.params._id;
   console.log(_id);
+  res.json(_id);
 });
 
 // @route   DELETE api/items/:id
