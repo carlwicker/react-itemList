@@ -27,10 +27,6 @@ class ListAddItem extends React.Component {
       });
   }
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

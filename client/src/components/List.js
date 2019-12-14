@@ -2,6 +2,7 @@ import React from "react";
 import "./List.css";
 import Axios from "axios";
 import ListItem from "./ListItem";
+import ListItemEdit from "./ListItemEdit";
 
 class List extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class List extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      users: []
+      users: [],
+      selected: "none"
     };
   }
 
@@ -18,7 +20,8 @@ class List extends React.Component {
       result => {
         this.setState({
           isLoaded: true,
-          users: result.data
+          users: result.data,
+          selected: "none"
         });
       }
     );
@@ -29,7 +32,8 @@ class List extends React.Component {
       result => {
         this.setState({
           isLoaded: true,
-          users: result.data
+          users: result.data,
+          selected: "none"
         });
       }
     );
@@ -39,23 +43,30 @@ class List extends React.Component {
     let users = this.state.users;
 
     return (
-      <div id="list">
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Item Name</th>
-              <th scope="col">Controls</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => {
-              return (
-                <ListItem key={user._id} _id={user._id} name={user.name} />
-              );
-            })}
-          </tbody>
-        </table>
+      <div>
+        <div id="list">
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, index) => {
+                return (
+                  <ListItem
+                    key={user._id}
+                    _id={user._id}
+                    name={user.name}
+                  ></ListItem>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <ListItemEdit />
       </div>
     );
   }

@@ -4,7 +4,6 @@ import List from "./components/List";
 import ListAddItem from "./components/ListAddItem";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import ListItemEdit from "./components/ListItemEdit";
 
 function App() {
   let pageTitles = [
@@ -19,7 +18,7 @@ function App() {
       <Header title={pageTitles[0].title} />
       <ListAddItem title={pageTitles[1].title} />
       <List title={pageTitles[2].title} />
-      <ListItemEdit />
+
       <Footer title={pageTitles[3].title} />
     </div>
   );
