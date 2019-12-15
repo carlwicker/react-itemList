@@ -39,6 +39,10 @@ class List extends React.Component {
     );
   }
 
+  editHandler = _id => {
+    this.setState({ selected: _id });
+  };
+
   render() {
     let users = this.state.users;
 
