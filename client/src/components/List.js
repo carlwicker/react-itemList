@@ -11,7 +11,8 @@ class List extends React.Component {
       error: null,
       isLoaded: false,
       users: [],
-      selected: "None"
+      selected: "None",
+      _id: "None"
     };
   }
 
@@ -38,13 +39,14 @@ class List extends React.Component {
     );
   }
 
-  editHandler = name => {
-    this.setState({ selected: name });
+  editHandler = (name, _id) => {
+    this.setState({ selected: name, _id: _id });
   };
 
   render() {
     let users = this.state.users;
     let selected = this.state.selected;
+    let _id = this.state._id;
 
     return (
       <div>
@@ -71,7 +73,7 @@ class List extends React.Component {
             </tbody>
           </table>
         </div>
-        <ListItemEdit selected={selected} />
+        <ListItemEdit selected={selected} _id={_id} />
       </div>
     );
   }

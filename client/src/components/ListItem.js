@@ -5,7 +5,8 @@ import Axios from "axios";
 class ListItem extends React.Component {
   handleEditClick = () => {
     let name = this.props.name;
-    this.props.editHandler(name);
+    let _id = this.props._id;
+    this.props.editHandler(name, _id);
   };
 
   render() {
