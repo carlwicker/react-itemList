@@ -26,7 +26,7 @@ function ListItemEdit(props) {
               className="btn btn-primary"
               onClick={() => {}}
             >
-              Edit Item
+              Update Item
             </button>
           </div>
         </div>
