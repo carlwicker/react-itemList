@@ -16,15 +16,17 @@ function ListItemEdit(props) {
             id="edit-item-input"
             defaultValue={selectedName}
             onChange={e => {
-              // db update here somewhere
               console.log(e.target.value);
             }}
           ></input>
           <div className="input-group-append">
             <button
+              disabled
               type="submit"
               className="btn btn-primary"
-              onClick={() => {}}
+              onClick={() => {
+                // db update here
+              }}
             >
               Update Item
             </button>
@@ -42,7 +44,6 @@ function ListItemEdit(props) {
             id="edit-item-input"
             defaultValue={selectedName}
             onChange={e => {
-              // db update here somewhere
               console.log(e.target.value);
             }}
           ></input>
@@ -50,7 +51,9 @@ function ListItemEdit(props) {
             <button
               type="submit"
               className="btn btn-primary"
-              onClick={() => {}}
+              onClick={() => {
+                // db update here`
+              }}
             >
               Update Item
             </button>
