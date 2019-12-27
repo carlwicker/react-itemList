@@ -46,8 +46,6 @@ class List extends React.Component {
 
   handleAddItemSubmit = e => {
     e.preventDefault();
-    console.log(this.state.newItem);
-
     Axios.post(
       "https://react-item-list.herokuapp.com/api/items",
       this.state.newItem
@@ -56,8 +54,10 @@ class List extends React.Component {
         console.log("Added: " + response.data._id);
       })
       .then(() => {
-        this.setState({ newItem: { name: "" }, dataRefresh: true });
-        console.log(this.state.newItem);
+        this.setState({
+          newItem: { name: "" },
+          dataRefresh: true
+        });
       })
       .catch(error => {
         console.log(error);
