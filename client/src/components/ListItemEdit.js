@@ -2,11 +2,13 @@ import React from "react";
 import "./ListItemEdit.css";
 
 function ListItemEdit(props) {
-  let selected_id = props.selected_id;
-  let selectedName = props.selectedName;
+  const selected = {
+    _id: props.selected_id,
+    name: props.selectedName
+  };
 
   // Disable Input Field
-  if (selectedName === undefined) {
+  if (selected.name === undefined) {
     return (
       <form>
         <div id="list-item-add" className="input-group mb-3 form-group">
@@ -14,9 +16,9 @@ function ListItemEdit(props) {
             readOnly
             className="form-control"
             id="edit-item-input"
-            defaultValue={selectedName}
+            defaultValue={selected.name}
             onChange={e => {
-              console.log(e.target.value);
+              selected.name = e.target.value;
             }}
           ></input>
           <div className="input-group-append">
@@ -25,7 +27,7 @@ function ListItemEdit(props) {
               type="submit"
               className="btn btn-primary"
               onClick={() => {
-                // db update here
+                // db Do Nothing as Disabled
               }}
             >
               Update Item
@@ -42,17 +44,22 @@ function ListItemEdit(props) {
           <input
             className="form-control"
             id="edit-item-input"
-            defaultValue={selectedName}
+            defaultValue={selected.name}
             onChange={e => {
-              console.log(e.target.value);
+              e.preventDefault();
+              selected.name = e.target.value;
+              console.log(selected.name);
             }}
           ></input>
           <div className="input-group-append">
             <button
               type="submit"
               className="btn btn-primary"
-              onClick={() => {
+              onClick={e => {
                 // db update here`
+                e.preventDefault();
+                console.log(selected._id);
+                // Axios.put("https://endpoint/{this.selected_id}", selected);
               }}
             >
               Update Item

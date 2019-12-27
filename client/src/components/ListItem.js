@@ -1,12 +1,16 @@
 import React from "react";
 import "./ListItem.css";
-import Axios from "axios";
 
 class ListItem extends React.Component {
   handleEditClick = () => {
     let name = this.props.name;
     let _id = this.props._id;
-    this.props.editHandler(name, _id);
+    this.props.listEditHandler(name, _id);
+  };
+
+  handleDeleteClick = () => {
+    let _id = this.props._id;
+    this.props.deleteButtonHandler(_id);
   };
 
   render() {
@@ -20,17 +24,7 @@ class ListItem extends React.Component {
           <button onClick={this.handleEditClick} className="btn btn-primary">
             Edit
           </button>{" "}
-          <button
-            onClick={() =>
-              Axios.delete(
-                "https://react-item-list.herokuapp.com/api/items/" +
-                  this.props._id
-              )
-                .then(success => console.log("Deleted: " + this.props._id))
-                .catch(err => console.log(err))
-            }
-            className="btn btn-danger"
-          >
+          <button onClick={this.handleDeleteClick} className="btn btn-danger">
             Delete
           </button>
         </td>
