@@ -30,13 +30,11 @@ class List extends React.Component {
   }
 
   // Edit Button Handler
-
   listEditHandler = (name, _id) => {
     this.setState({ selected: name, _id: _id });
   };
 
   // Add Item Form Handlers
-
   handleAddItemChange = name => {
     this.setState({
       newItem: { name: name.target.value },
@@ -65,7 +63,6 @@ class List extends React.Component {
   };
 
   // Delete buttton Handler
-
   deleteButtonHandler = _id => {
     Axios.delete("https://react-item-list.herokuapp.com/api/items/" + _id)
       .then(success => {
