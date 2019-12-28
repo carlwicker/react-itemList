@@ -1,6 +1,6 @@
 import React from "react";
 import "./ListItemEdit.css";
-import Axios from "axios";
+const Axios = require("axios");
 
 function ListItemEdit(props) {
   const selected = {
@@ -47,11 +47,8 @@ function ListItemEdit(props) {
           console.log(selected);
           Axios.put(
             "https://react-item-list.herokuapp.com/api/items/update/" +
-              selected._id,
-            selected
-          ).catch((error, msg) => {
-            console.log(error);
-          });
+              selected._id
+          );
         }}
       >
         <div id="list-item-add" className="input-group mb-3 form-group">
