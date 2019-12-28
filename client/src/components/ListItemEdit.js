@@ -1,5 +1,6 @@
 import React from "react";
 import "./ListItemEdit.css";
+import Axios from "axios";
 
 function ListItemEdit(props) {
   const selected = {
@@ -39,7 +40,20 @@ function ListItemEdit(props) {
   } else {
     // Enable Input Field
     return (
-      <form>
+      <form
+        onSubmit={e => {
+          // db update here`
+          e.preventDefault();
+          console.log(selected);
+          Axios.post(
+            "https://react-item-list.herokuapp.com/api/items/update/" +
+              selected._id,
+            selected
+          ).catch((error, msg) => {
+            console.log(error);
+          });
+        }}
+      >
         <div id="list-item-add" className="input-group mb-3 form-group">
           <input
             className="form-control"
@@ -52,16 +66,7 @@ function ListItemEdit(props) {
             }}
           ></input>
           <div className="input-group-append">
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={e => {
-                // db update here`
-                e.preventDefault();
-                console.log(selected._id);
-                // Axios.put("https://endpoint/{this.selected_id}", selected);
-              }}
-            >
+            <button type="submit" className="btn btn-primary">
               Update Item
             </button>
           </div>
