@@ -45,7 +45,7 @@ function ListItemEdit(props) {
           // db update here`
           e.preventDefault();
           console.log(selected);
-          Axios.post(
+          Axios.put(
             "https://react-item-list.herokuapp.com/api/items/update/" +
               selected._id,
             selected
