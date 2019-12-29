@@ -7,6 +7,11 @@ function ListItemEdit(props) {
     name: props.selectedName
   };
 
+  const listUpdateButtonHandler = () => {
+    let _id = props.selected_id;
+    props.listUpdateButton(_id);
+  };
+
   // Disable Input Field
   if (selected.name === undefined) {
     return (
@@ -39,23 +44,7 @@ function ListItemEdit(props) {
   } else {
     // Enable Input Field
     return (
-      <form
-        onSubmit={e => {
-          // db update here`
-          e.preventDefault();
-          console.log(selected);
-          // Axios.put(
-          //   "https://react-item-list.herokuapp.com/api/items/update/" +
-          //     selected._id,
-          //   selected
-          // ).then(result => {
-          //   console.log(result);
-          //   this.setState({
-          //     itemList: result.data
-          //   });
-          // });
-        }}
-      >
+      <form onSubmit={listUpdateButtonHandler}>
         <div id="list-item-add" className="input-group mb-3 form-group">
           <input
             className="form-control"

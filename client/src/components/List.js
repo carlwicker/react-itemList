@@ -11,8 +11,10 @@ class List extends React.Component {
     this.state = {
       error: null,
       itemList: [],
-      selectedName: "None",
-      selected_id: "None",
+      selected: {
+        _id: undefined,
+        name: undefined
+      },
       newItem: {
         name: ""
       },
@@ -30,9 +32,15 @@ class List extends React.Component {
     );
   }
 
+  // Item Update Button Handler
+  listUpdateButton = _id => {
+    console.log(_id);
+    // Axois Update Stuff here!
+  };
+
   // Edit Button Handler
   listEditHandler = (name, _id) => {
-    this.setState({ selected: name, _id: _id });
+    this.setState({ selected: { _id: _id, name: name } });
   };
 
   // Add Item Form Handlers
@@ -92,8 +100,8 @@ class List extends React.Component {
 
   render() {
     let itemList = this.state.itemList;
-    let selected = this.state.selected;
-    let _id = this.state._id;
+    let _id = this.state.selected._id;
+    let selectedName = this.state.selected.name;
 
     return (
       <div>
@@ -127,7 +135,11 @@ class List extends React.Component {
             </tbody>
           </table>
         </div>
-        <ListItemEdit selectedName={selected} selected_id={_id} />
+        <ListItemEdit
+          selectedName={selectedName}
+          selected_id={_id}
+          listUpdateButton={this.listUpdateButton}
+        />
       </div>
     );
   }
