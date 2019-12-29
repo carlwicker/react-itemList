@@ -1,6 +1,5 @@
 import React from "react";
 import "./ListItemEdit.css";
-const Axios = require("axios");
 
 function ListItemEdit(props) {
   const selected = {
