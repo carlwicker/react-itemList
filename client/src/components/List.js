@@ -15,7 +15,8 @@ class List extends React.Component {
       selected_id: "None",
       newItem: {
         name: ""
-      }
+      },
+      dataRefresh: false
     };
   }
 

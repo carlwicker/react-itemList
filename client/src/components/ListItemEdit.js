@@ -45,10 +45,16 @@ function ListItemEdit(props) {
           // db update here`
           e.preventDefault();
           console.log(selected);
-          Axios.put(
-            "https://react-item-list.herokuapp.com/api/items/update/" +
-              selected._id
-          );
+          // Axios.put(
+          //   "https://react-item-list.herokuapp.com/api/items/update/" +
+          //     selected._id,
+          //   selected
+          // ).then(result => {
+          //   console.log(result);
+          //   this.setState({
+          //     itemList: result.data
+          //   });
+          // });
         }}
       >
         <div id="list-item-add" className="input-group mb-3 form-group">
