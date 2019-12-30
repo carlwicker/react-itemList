@@ -34,8 +34,20 @@ class List extends React.Component {
 
   // Item Update Button Handler
   listUpdateButton = _id => {
-    console.log(_id);
+    console.log("Updating: " + this.state.selected.name);
     // Axois Update Stuff here!
+    Axios.put(
+      "https://react-item-list.herokuapp.com/api/items/update/" + _id,
+      this.state.selected
+    ).then(() => {
+      this.setState({
+        selected: {
+          _id: undefined,
+          name: undefined
+        },
+        dataRefresh: true
+      });
+    });
   };
 
   // Edit Button Handler

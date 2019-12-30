@@ -8,7 +8,7 @@ function ListItemEdit(props) {
   };
 
   const listUpdateButtonHandler = () => {
-    let _id = props.selected_id;
+    const _id = props.selected_id;
     props.listUpdateButton(_id);
   };
 
@@ -53,7 +53,7 @@ function ListItemEdit(props) {
             onChange={e => {
               e.preventDefault();
               selected.name = e.target.value;
-              console.log(selected.name);
+              console.log("Update: " + selected.name);
             }}
           ></input>
           <div className="input-group-append">

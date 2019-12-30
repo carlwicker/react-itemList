@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const bodyParser = require("body-parser");
 
 // Item Model
 const Item = require("../../models/Item");
@@ -23,15 +22,17 @@ router.post("/", (req, res) => {
   });
 
   newItem.save().then(item => res.json(item));
+  console.log(req.body.name);
 });
 
 // @route   PATCH api/items/update/:id
 // @desc    Update item
 // @access  Public
-router.patch("/update/:_id", (req, res) => {
-  const _id = req.params._id;
-  console.log(_id);
-  res.json(_id);
+router.put("/update/:_id", (req, res) => {
+  Item.findOneAndUpdate(
+    { _id: req.params._id },
+    { name: req.body.name }
+  ).then(() => res.json({ success: true }));
 });
 
 // @route   DELETE api/items/:id
