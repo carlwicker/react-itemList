@@ -3,9 +3,11 @@ import "./ListItem.css";
 
 function ListItem(props) {
   const handleEditClick = () => {
-    let name = props.name;
     let _id = props._id;
-    props.listEditHandler(name, _id);
+    let name = props.name;
+
+    props.listEditHandler(_id, name);
+    console.log("Editing: " + _id);
   };
 
   const handleDeleteClick = () => {

@@ -8,8 +8,10 @@ function ListItemEdit(props) {
   };
 
   const listUpdateButtonHandler = () => {
-    const _id = props.selected_id;
-    props.listUpdateButton(_id);
+    console.log(selected);
+    let _id = selected._id;
+    let name = selected.name;
+    props.listUpdateButton(_id, name);
   };
 
   // Disable Input Field
@@ -27,14 +29,7 @@ function ListItemEdit(props) {
             }}
           ></input>
           <div className="input-group-append">
-            <button
-              disabled
-              type="submit"
-              className="btn btn-primary"
-              onClick={() => {
-                // db Do Nothing as Disabled
-              }}
-            >
+            <button disabled type="submit" className="btn btn-primary">
               Update Item
             </button>
           </div>
@@ -53,7 +48,7 @@ function ListItemEdit(props) {
             onChange={e => {
               e.preventDefault();
               selected.name = e.target.value;
-              console.log("Update: " + selected.name);
+              console.log(selected);
             }}
           ></input>
           <div className="input-group-append">

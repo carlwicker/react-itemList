@@ -15,6 +15,10 @@ class List extends React.Component {
         _id: undefined,
         name: undefined
       },
+      updatedItem: {
+        _id: undefined,
+        name: undefined
+      },
       newItem: {
         name: ""
       },
@@ -33,25 +37,19 @@ class List extends React.Component {
   }
 
   // Item Update Button Handler
-  listUpdateButton = _id => {
-    console.log("Updating: " + this.state.selected.name);
-    // Axois Update Stuff here!
-    Axios.put(
-      "https://react-item-list.herokuapp.com/api/items/update/" + _id,
-      this.state.selected
-    ).then(() => {
-      this.setState({
-        selected: {
-          _id: undefined,
-          name: undefined
-        },
-        dataRefresh: true
-      });
+  listUpdateButton = (_id, name) => {
+    console.log(_id);
+    console.log(name);
+
+    Axios.put("https://react-item-list.herokuapp.com/api/items/update/" + _id, {
+      name: name
+    }).catch(error => {
+      console.log(error);
     });
   };
 
   // Edit Button Handler
-  listEditHandler = (name, _id) => {
+  listEditHandler = (_id, name) => {
     this.setState({ selected: { _id: _id, name: name } });
   };
 
