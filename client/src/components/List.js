@@ -15,10 +15,6 @@ class List extends React.Component {
         _id: undefined,
         name: undefined
       },
-      updatedItem: {
-        _id: undefined,
-        name: undefined
-      },
       newItem: {
         name: ""
       },
@@ -38,9 +34,6 @@ class List extends React.Component {
 
   // Item Update Button Handler
   listUpdateButton = (_id, name) => {
-    console.log(_id);
-    console.log(name);
-
     Axios.put("https://react-item-list.herokuapp.com/api/items/update/" + _id, {
       name: name
     }).catch(error => {
