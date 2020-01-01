@@ -30,7 +30,7 @@ const listItem = mongoose.model("listItem", {
   name: String
 });
 
-// New API
+// Items API Endpoints
 app.use("/api/items", items);
 
 // Handles any requests that don't match the ones above
